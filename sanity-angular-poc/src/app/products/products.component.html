@@ -1,0 +1,32 @@
+<div class="container" style="margin-top:10px">
+    <div class="row">
+    <div class="col-md-3" *ngFor="let item of products">
+        <div class="card">
+            <img class="card-img-top" src="{{item.productimage}}" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">Price Rs {{item.price}}</p>
+              <a class="btn btn-primary" (click)="detailView(item,template)">View Detail</a>
+            </div>
+          </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Product Detail</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h3>{{product.name}} - Rs {{product.price}}</h3>
+      <br/>
+      <img src="{{product.productimage}}"/>
+      <p>{{product.description}}</p>
+
+
+    </div>
+  </ng-template>
+
+</div>
